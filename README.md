@@ -1,2 +1,2 @@
-# pytorch_fully_net
+# Pytorch_fully_net
 Simple fully net
