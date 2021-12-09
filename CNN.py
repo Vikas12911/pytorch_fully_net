@@ -96,4 +96,25 @@ for i in range(num_epoch):
 	check_accuracy(model , test_dl)
 
 		
- 
+def save_checkpoint(state,filename = "mymodel.pth.tar"):
+	print("Saving Checkpoint")
+	torch.save(state , filename)
+
+def load_checkpoint(checkpoint , model , optimizer):
+	print("Loading checkpoint")
+	model.load_state_dict(checkpoint["state_dict"])
+	optimizer.load_state_dict(checkpoint['optimizer'])
+
+def main():
+
+
+
+	checkpoint = { 'state_dict': model.state_dict() , 'optimizer':optimizer.state_dict()}
+	
+	save_checkpoint(checkpoint)
+	
+	load_checkpoint(checkpoint , model , optimizer)
+
+if __name__=="__main__":
+	main()
+	 
